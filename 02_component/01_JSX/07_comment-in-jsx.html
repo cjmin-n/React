@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 공부용 리액트 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // 한줄 주석
+        /* 
+            자바스크립트 여러 줄 주석
+        */
+
+        const element = (
+            <>
+                <h1>Comment in jsx</h1>
+                {/* jsx 내에서 주석은 이렇게 작성한다..*/}
+                {
+                    // 한줄 주석
+                
+                }
+                // 이런 주석이나
+                /* 이런 주석은 화면에 표시된다.. */
+            </>
+        );
+
+        ReactDOM.createRoot(document.getElementById("root")).render(element);
+    </script>
+</body>
+</html>

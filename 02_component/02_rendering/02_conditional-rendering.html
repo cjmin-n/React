@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 공부용 리액트 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        const answer = parseInt(prompt("리액트가 재미있으신가요? \n 1.재미있다. \n 2.어렵다")); // prompt는 입력받을 수 있는 알럿창 -> 문자열로 입력받아서 parseInt 붙여서 숫자로 형변환
+
+        // 1. 렌더링 시 조건 비교 후 조건부 렌더링 (최대한 조건식이 심플할 때 사용)
+        const positiveElement = <h1>앞으로 점점 더 재밌어질 거예요</h1>;
+        const negativeElement = <h1>천천히 앞의 내용을 복습 해 보세요</h1>;
+
+        root.render(
+            (answer === 1) ? positiveElement : negativeElement
+        );
+
+        // 2. && 연산자를 이용하여 조건부 엘리먼트 생성 (조건이 맞을때만)
+        const element = (answer === 1) && <h1>앞으로 점점 더 재밌어질 거예요</h1>;
+        root.render(element);
+        
+    </script>
+</body>
+</html>
