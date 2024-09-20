@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 공부용 리액트 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+
+        const {useState} = React;
+
+        function App(){
+            return (
+                <>
+                    <h1>상품 주문 시스템</h1>
+                    <Component />
+                </>
+            );
+        }
+
+        function Component(){
+
+            const [price, setPrice] = useState("");
+            const [count, setCount] = useState("");
+            const [total, setTotal] = useState("");
+
+            const onChangePrice = e => setPrice(e.target.value);
+            const onChangeCount = e => setCount(e.target.value);
+
+            const onClickHandler = () => {
+                setTotal(price * count);
+            }
+
+            return (
+                <>
+                    <label for="price">상품 가격 : </label>
+                    <input type="text" placeholder="가격 입력" name="price" id="price" onChange={onChangePrice}/><br/>
+                    <label for="count">상품 수량 : </label>
+                    <input type="text" placeholder="수량 입력" name="count" id="count" onChange={onChangeCount}/><br/>
+                    <button onClick={onClickHandler}>총합 계산</button><br/>
+                    <br/>
+                    <h3>총합 : <span>{total}</span>원</h3>
+                </>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+    </script>
+</body>
+</html>
