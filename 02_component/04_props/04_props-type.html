@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 공부용 리액트 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- props 의 자료형을 검증하기 위한 도구 : 자바스크립트는 동적타입언어이기때문에 검증 -->
+    <script crossorigin src="https://unpkg.com/prop-types@15.8.1/prop-types.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+        function PropsVerify({name, favoriteNumber, children}){
+            return (
+                <>
+                    <h1>저의 이름은 {name} 입니다</h1>
+                    <h1>제가 가장 좋아하는 숫자는 {favoriteNumber} 입니다</h1>
+                    <h1>저의 자식은 {children} 입니다</h1>
+                </>
+            )
+        }
+
+        // 렌더링에는 문제없지만 콘솔창에 경고문이 뜬다.
+        PropsVerify.propTypes = {
+            name : PropTypes.string,
+            favoriteNumber : PropTypes.number.isRequired // isRequired : 필수
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render([
+            <PropsVerify name="홍길동" favoriteNumber={5}>텍스트노드</PropsVerify>, // 정수 전달 시 {} 
+            <PropsVerify name={3}>텍스트노드</PropsVerify>
+        ]);
+
+
+    </script>
+</body>
+</html>

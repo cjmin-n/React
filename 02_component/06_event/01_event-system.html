@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 공부용 리액트 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    
+    <!-- 
+        리액트의 이벤트 시스템
+        - 웹 브라우저 html 이벤트와 인터페이스가 동일하기 때문에 사용 방법이 거의 유사하다.
+        하지만 몇가지 주의 사항이 있다..
+
+        1. 이벤트 속성의 이름은 카멜 표기법으로 작성한다..(onclick -> onClick)
+        2. 이벤트를 실행 할 자바스크립트의 코드를 전달하는 것이 아닌 함수 형태의 값을 전달
+        ex ) html : <button onclick="alert('hello')">클릭</button>
+            react : <button onClick={()=>alert('hello')}>클릭</button>
+        3. 컴포넌트 내부에서 props 에 전달되어 온 함수를 이벤트 핸들러에 추가할 수 있다..
+    -->
+
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+
+        class EventButton extends React.Component {
+
+            // #1 render 함수 내부에서 이벤트 정의 후 전달하여 이벤트 연결
+            // render(){
+            //     const onClickHandler = () => alert("인라인 함수 동작");
+            //     return (
+            //         <button onClick={onClickHandler}>버튼</button>
+            //     );
+            // }
+
+
+            // #2 component 에 이벤트를 props 전달 후 연결
+            render(){
+                const {onClick, children} = this.props;
+                return (
+                    <button onClick={onClick}>{children}</button>
+                );
+            }
+        }
+
+        // + const eventHandler = () => alert("이벤트");
+        
+        ReactDOM.createRoot(document.getElementById("root")).render(
+            // <EventButton>이벤트</EventButton>
+            
+            <EventButton onClick={()=>alert("이벤트")}>이벤트 버튼</EventButton>
+            // + <EventButton onClick={eventHandler}>이벤트 버튼</EventButton>
+        );
+    </script>
+</body>
+</html>
