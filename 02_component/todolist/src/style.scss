@@ -1,0 +1,129 @@
+// common
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Noto Sans KR", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+button {
+    font-family: "Noto Sans KR", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    padding: 4px 12px;
+    background-color: #f5f5f5;
+    border: none;
+    outline: none;
+    
+    border-radius: 7px;
+}
+
+input[type="text"] {
+    border: 1px solid #999;
+    width: 150px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+// content
+#root {
+    > div {
+        width: 500px;
+        margin: 50px auto;
+        padding: 30px;
+        border: 1px solid #333;
+        border-radius: 15px;
+        
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            h1 {
+                font-family: "Montserrat", sans-serif;      
+            }
+            .btn-mode {
+                background: #fff;
+                border: 1px solid #000;
+                border-radius: 30px;
+                padding: 0px 2px;
+                height: 25px;
+                font-size: 0;
+                width: 55px;
+                position: relative;
+                cursor: pointer;
+                &::after {
+                    content: '';
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 100%;
+                    position: absolute;
+                    background: #000;
+                    top: 0;
+                    bottom: 0;
+                    right: 5px;
+                    margin: auto;
+                    transition: .5s;
+                }
+                &.clicked {
+                    &::after {
+                        right: calc(55px - 17px - 5px);
+                    }
+                }
+            }
+        }
+        .list {
+            margin-bottom: 20px;
+            > div {
+                padding: 5px 0;
+                input[type="checkbox"] {
+                    display: none;
+                    margin-right: 5px; 
+                    
+                   + label {
+                        display: inline-block;
+                        min-width: 100px;
+                        position: relative;
+                        padding-left: 25px;
+                        cursor: pointer;
+                        &::before, &::after {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            margin: auto;
+                            border-radius: 100%;
+                        }
+                        &::before {
+                            width: 15px;
+                            height: 15px;
+                            border: 1px solid #000;
+                            left: 0;
+                            
+                        }
+                   }
+                   &:checked {
+                        + label {
+                            &::after {
+                                width: 9px;
+                                height: 9px;
+                                background: #000;
+                                left: 4px;
+                            }
+                        }
+                   }
+                }
+                button {
+                    
+                }
+            }
+        }
+
+    }
+}

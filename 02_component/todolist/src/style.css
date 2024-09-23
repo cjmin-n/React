@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans KR", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button {
+  font-family: "Noto Sans KR", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  padding: 4px 12px;
+  background-color: #f5f5f5;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+}
+
+input[type=text] {
+  border: 1px solid #999;
+  width: 150px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+#root > div {
+  width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #333;
+  border-radius: 15px;
+}
+#root > div .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+#root > div .top h1 {
+  font-family: "Montserrat", sans-serif;
+}
+#root > div .top .btn-mode {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 30px;
+  padding: 0px 2px;
+  height: 25px;
+  font-size: 0;
+  width: 55px;
+  position: relative;
+  cursor: pointer;
+}
+#root > div .top .btn-mode::after {
+  content: "";
+  width: 17px;
+  height: 17px;
+  border-radius: 100%;
+  position: absolute;
+  background: #000;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#root > div .top .btn-mode.clicked::after {
+  right: 33px;
+}
+#root > div .list {
+  margin-bottom: 20px;
+}
+#root > div .list > div {
+  padding: 5px 0;
+}
+#root > div .list > div input[type=checkbox] {
+  display: none;
+  margin-right: 5px;
+}
+#root > div .list > div input[type=checkbox] + label {
+  display: inline-block;
+  min-width: 100px;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+}
+#root > div .list > div input[type=checkbox] + label::before, #root > div .list > div input[type=checkbox] + label::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 100%;
+}
+#root > div .list > div input[type=checkbox] + label::before {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #000;
+  left: 0;
+}
+#root > div .list > div input[type=checkbox]:checked + label::after {
+  width: 9px;
+  height: 9px;
+  background: #000;
+  left: 4px;
+}
