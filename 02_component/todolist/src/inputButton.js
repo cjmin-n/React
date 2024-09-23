@@ -21,9 +21,9 @@ const InputButton = (props) => {
     
     
     return(
-        <>
+        <div>
             <input type="text" value={inputValue} onChange={onAdd} /><button onClick={onClickAdd}>추가</button>
-        </>
+        </div>
     );
 }
 

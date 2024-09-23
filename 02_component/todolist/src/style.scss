@@ -15,20 +15,26 @@ button {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-size: 14px;
+    font-size: 13px;
     padding: 4px 12px;
     background-color: #f5f5f5;
     border: none;
     outline: none;
-    
+    cursor: pointer;
     border-radius: 7px;
+    transition: 0.3s;
+    &:hover {
+        background: #000;
+        color: #fff;
+    }
 }
 
 input[type="text"] {
+    font-family: "Noto Sans KR", serif;
     border: 1px solid #999;
-    width: 150px;
-    padding: 5px;
-    margin-right: 5px;
+    width: 160px;
+    padding: 5px 10px;
+    border-radius: 5px 0 0 5px;
 }
 
 // content
@@ -36,15 +42,17 @@ input[type="text"] {
     > div {
         width: 500px;
         margin: 50px auto;
-        padding: 30px;
+        padding: 25px 30px 40px 30px;
         border: 1px solid #333;
-        border-radius: 15px;
+        border-radius: 15px 15px 0 0;
         
         .top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 20px;
             h1 {
                 font-family: "Montserrat", sans-serif;      
             }
@@ -82,13 +90,15 @@ input[type="text"] {
             margin-bottom: 20px;
             > div {
                 padding: 5px 0;
+
+                $inputWidth: 15px;
                 input[type="checkbox"] {
                     display: none;
                     margin-right: 5px; 
                     
                    + label {
                         display: inline-block;
-                        min-width: 100px;
+                        width: 85%;
                         position: relative;
                         padding-left: 25px;
                         cursor: pointer;
@@ -101,8 +111,8 @@ input[type="text"] {
                             border-radius: 100%;
                         }
                         &::before {
-                            width: 15px;
-                            height: 15px;
+                            width: $inputWidth;
+                            height: $inputWidth;
                             border: 1px solid #000;
                             left: 0;
                             
@@ -119,11 +129,49 @@ input[type="text"] {
                         }
                    }
                 }
-                button {
-                    
+                
+            }
+        }
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            >div {
+                display: flex;
+                &:last-of-type {
+                    justify-content: flex-end;
+                }
+            }
+            button {
+                height: 100%;
+                border-radius: 0 5px 5px 0;
+                background: #999;
+                color: #fff;
+            }
+        }
+        // 다크모드
+        &.dark {
+            .top {
+                border-bottom-color: #fff;
+            }
+            .list {
+                > div {
+                    input[type="checkbox"] {
+                        + label {
+                            &::before {
+                                border-color: #fff;
+                            }
+                            
+                        }
+                        &:checked {
+                            + label {
+                                &::after {
+                                    background: #fff;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-
     }
 }

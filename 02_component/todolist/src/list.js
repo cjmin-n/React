@@ -11,9 +11,11 @@ export const List = (props) => {
     // 체크박스 체크했을 때
     const onCheck = e => {
         const label = e.target.nextElementSibling;
-        props.isOn ? label.style.textDecoration = "none" : label.style.textDecoration = "line-through";
+        label.style.textDecoration = props.isOn ? "none" : "line-through";
+        //props.isOn ? label.style.textDecoration = "none" : label.style.textDecoration = "line-through";
         
-        props.setIsOn(props.isOn? false : true);
+        //props.setIsOn(props.isOn? false : true);
+        props.setIsOn(!props.isOn);
     };
     /* const onCheck = e => {
         const label = e.target.nextElementSibling;

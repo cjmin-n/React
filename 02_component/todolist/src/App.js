@@ -26,6 +26,7 @@ function App() {
         setIsOn(isOn? false: true);
        
         e.target.classList.toggle("clicked");
+        document.querySelector("#root > div").classList.toggle("dark");
     }
     // const onDarkMode = e => {
     //     if(e.target.parentNode.style.backgroundColor == "black"){
@@ -62,8 +63,12 @@ function App() {
             </div>
             
             <List color={color} checks={checks} setCheck={setCheck} isOn={isOn} setIsOn={setIsOn}/>
-            <InputButton checks={checks} setCheck={setCheck}/>
-            <input type="text" value={colorValue} onChange={onChangeColor}/><button onClick={onClickChangeColor}>색변경</button>
+            <div className="bottom">
+                <InputButton checks={checks} setCheck={setCheck}/>
+                <div>
+                    <input type="text" value={colorValue} onChange={onChangeColor}/><button onClick={onClickChangeColor}>색변경</button>
+                </div>
+            </div>
         </div>
     </>
   );

@@ -15,27 +15,35 @@ button {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 14px;
+  font-size: 13px;
   padding: 4px 12px;
   background-color: #f5f5f5;
   border: none;
   outline: none;
+  cursor: pointer;
   border-radius: 7px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+button:hover {
+  background: #000;
+  color: #fff;
 }
 
 input[type=text] {
+  font-family: "Noto Sans KR", serif;
   border: 1px solid #999;
-  width: 150px;
-  padding: 5px;
-  margin-right: 5px;
+  width: 160px;
+  padding: 5px 10px;
+  border-radius: 5px 0 0 5px;
 }
 
 #root > div {
   width: 500px;
   margin: 50px auto;
-  padding: 30px;
+  padding: 25px 30px 40px 30px;
   border: 1px solid #333;
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
 }
 #root > div .top {
   display: -webkit-box;
@@ -48,6 +56,8 @@ input[type=text] {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 20px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 20px;
 }
 #root > div .top h1 {
   font-family: "Montserrat", sans-serif;
@@ -92,7 +102,7 @@ input[type=text] {
 }
 #root > div .list > div input[type=checkbox] + label {
   display: inline-block;
-  min-width: 100px;
+  width: 85%;
   position: relative;
   padding-left: 25px;
   cursor: pointer;
@@ -116,4 +126,37 @@ input[type=text] {
   height: 9px;
   background: #000;
   left: 4px;
+}
+#root > div .bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+#root > div .bottom > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#root > div .bottom > div:last-of-type {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+#root > div .bottom button {
+  height: 100%;
+  border-radius: 0 5px 5px 0;
+  background: #999;
+  color: #fff;
+}
+#root > div.dark .top {
+  border-bottom-color: #fff;
+}
+#root > div.dark .list > div input[type=checkbox] + label::before {
+  border-color: #fff;
+}
+#root > div.dark .list > div input[type=checkbox]:checked + label::after {
+  background: #fff;
 }
