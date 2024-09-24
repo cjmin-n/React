@@ -66,7 +66,7 @@ function App() {
             <div className="bottom">
                 <InputButton checks={checks} setCheck={setCheck}/>
                 <div>
-                    <input type="text" value={colorValue} onChange={onChangeColor}/><button onClick={onClickChangeColor}>색변경</button>
+                    <input type="text" value={colorValue} onChange={onChangeColor} placeholder="색상명을 입력해주세요."/><button onClick={onClickChangeColor}>색변경</button>
                 </div>
             </div>
         </div>
