@@ -4,13 +4,31 @@ export const Year = () => {
 
     const [second, setSecond] = useState(10);
     const [inputValue, setInputValue] = useState('');
-    /* const [year, setYear] = useState({year: ''}); */
     const [isTrue, setIsTrue] = useState(false);
 
     useEffect(()=>{
         const interval = setInterval(()=>{
-            setSecond(value => value<=0 ? alert("시간초과 !! !") : value-1);
+
+            /* second == 0 ? setIsTrue(true) : setIsTrue(false);    
+            isTrue ? setSecond(second) : setSecond(second-1); */
+
+            setSecond(second-1);
+            
+            if(second == 0){
+                setIsTrue(true);    
+                setSecond(second);
+            }
+            
+
+            
         }, 1000);
+
+        if(isTrue){
+            console.log(second);
+            clearInterval(interval);
+            alert("시간초과 !! !");
+        }
+        
 
         return () => clearInterval(interval);
     }, [second]);
@@ -22,16 +40,11 @@ export const Year = () => {
         return () => clearInterval(interval);
     }, []); */
 
-    /* useEffect(()=>{
-        console.log("감지됨");
-    }, [year.year]); */
+   
 
     const onChangeHandler = e => {
         setInputValue(e.target.value);
-        /* setYear({
-            ...year,
-            [e.target.name] : e.target.value
-        }) */
+        
     };
 
     const thisYear = new Date().getFullYear();

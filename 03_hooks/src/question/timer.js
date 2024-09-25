@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 
 
-const Timer = ({id, onDelete, index}) => {
+const Timer = ({id, onDelete}) => {
 
     const [second, setSecond] = useState(0);
 
@@ -16,7 +16,7 @@ const Timer = ({id, onDelete, index}) => {
 
     return(
         <>
-            <p>타이머 {index+1} : {second}초</p>
+            <p>타이머 {id} : {second}초</p>
             <button onClick={()=>onDelete(id)}>삭제</button>  
         </>
     );
@@ -49,7 +49,7 @@ export const TimeContainer = () => {
         <>
             <button onClick={onClickHandler}>타이머 추가</button>
             {timers.map( (timer, index)=>{
-                return <Timer key={timer.id} id={timer.id} index={index} onDelete={deleteTimer} />
+                return <Timer key={timer.id} id={timer.id} onDelete={deleteTimer} />
             })}
         </>
     )    
