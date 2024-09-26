@@ -16,7 +16,7 @@ const Item = ({id, onDelete}) => {
     return (
         <>  
             <p>타이머 {id} : {second}</p>
-            <button onClick={onDelete(id)}>삭제</button>
+            <button onClick={()=>onDelete(id)}>삭제</button>
         </>
     )
 }
@@ -24,8 +24,8 @@ const Item = ({id, onDelete}) => {
 const Timer = ({timers, setTimers}) => {
     const [second, setSecond] = useState(0);
     const onDelete = id => {
-        //console.log(id);
-        setTimers(timers.filter(timer => timer.id !== id));
+        const change = timers.filter(timer => timer.id !== id);       
+        setTimers(change);
     };
 
     useEffect(()=>{
@@ -39,13 +39,8 @@ const Timer = ({timers, setTimers}) => {
 
     return (
         timers.map((timer)=>{
-            /* return <Item key={timer.id} id={timer.id} onDelete={onDelete}/> */
-            return (
-                <div key={timer.id} >  
-                    <p>타이머 {timer.id} : {second}</p>
-                    <button onClick={onDelete(timer.id)}>삭제</button>
-                </div>
-            );
+            return <Item key={timer.id} id={timer.id} onDelete={onDelete}/>
+        
         })
     );
 }

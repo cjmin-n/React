@@ -7,30 +7,19 @@ export const Year = () => {
     const [isTrue, setIsTrue] = useState(false);
 
     useEffect(()=>{
-        const interval = setInterval(()=>{
+        if(second>0){
+            const interval = setInterval(()=>{
+                setSecond(s=>s-1);
+            }, 1000);
 
-            /* second == 0 ? setIsTrue(true) : setIsTrue(false);    
-            isTrue ? setSecond(second) : setSecond(second-1); */
-
-            setSecond(second-1);
-            
-            if(second == 0){
-                setIsTrue(true);    
-                setSecond(second);
-            }
-            
-
-            
-        }, 1000);
-
-        if(isTrue){
-            console.log(second);
-            clearInterval(interval);
-            alert("시간초과 !! !");
+            return () => clearInterval(interval);
+        }else {
+            console.log("타이머가 종료되었습니다.");
+            setTimeout(alert("시간초과!"),0);
         }
         
 
-        return () => clearInterval(interval);
+        
     }, [second]);
     /* useEffect(()=>{
         const interval = setInterval(()=>{
