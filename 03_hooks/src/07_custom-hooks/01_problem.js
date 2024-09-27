@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export const HooksProblem = () => {
     const [name, setName] = useState("");
@@ -10,11 +10,10 @@ export const HooksProblem = () => {
     const handlePassword = e => setPassword(e.target.value); */
     const handleEmail = e => setEmail(e.target.value);
 
-   
 
     const handleName = e => {
         setName(e.target.value);
-
+        
         if(e.target.value.match(/[가-힇]+/)){
             console.log("한글 잘 입력중이네");
         }
@@ -32,13 +31,13 @@ export const HooksProblem = () => {
     return (
         <>
             <label htmlFor="">이름 : </label>
-            <input type="text" onClick={handleName} />
+            <input type="text" onChange={handleName} />
             <br/>
             <label htmlFor="">비밀번호 : </label>
-            <input type="password" onClick={handlePassword} />
+            <input type="password" onChange={handlePassword} />
             <br/>
             <label htmlFor="">이메일 : </label>
-            <input type="email" onClick={handleEmail} />
+            <input type="email" onChange={handleEmail} />
             <br/>
             <h4>name : {name}</h4>
             <h4>password : {password}</h4>

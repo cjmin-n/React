@@ -33,6 +33,7 @@ export const BoardContainer = () => {
 
         setSubject("");
         setContent("");
+
     };
 
     const onDelete = index => {
