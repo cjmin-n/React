@@ -27,7 +27,7 @@ import Page from "./06_useContext/01_props-dribbling";
 import ContextContainer from "./06_useContext/02_useContext";
 import { HooksProblem } from "./07_custom-hooks/01_problem";
 import { CustomHooks } from "./07_custom-hooks/02_custom-hooks";
-import { BoardContainer } from "./question/board copy";
+import { BoardContainer } from "./question/board-complete";
 
 
 function App() {

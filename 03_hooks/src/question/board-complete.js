@@ -1,3 +1,4 @@
+/* 컴포넌트 나눠서 완성! */
 import { useState } from "react";
 
 // 전체
@@ -34,9 +35,9 @@ export const BoardContainer = () => {
         setContent("");
     };
 
-    const onDelete = subject => {
-        const change = boardFilter.filter(list=>list.subject !== subject);
-        const change2 = board.filter(list=>list.subject !== subject);
+    const onDelete = index => {
+        const change = boardFilter.filter((list, listIndex) => listIndex !== index);
+        const change2 = board.filter((list, listIndex) => listIndex !== index);
         setBoardFilter(change);
         setBoard(change2);
     }
@@ -60,7 +61,7 @@ export const BoardContainer = () => {
                 {
                     boardFilter.map((item, index)=>{
                         return (
-                            <Board key={index} item={item} onDelete={onDelete}/>
+                            <Board key={index} item={item} index={index} onDelete={onDelete}/>
                         );
                     })
                 }
@@ -71,7 +72,7 @@ export const BoardContainer = () => {
 
 
 // 글 리스트
-const Board = ({item, onDelete}) => {
+const Board = ({item, onDelete, index}) => {
     const [comment, setComment] = useState("");
     const [commentList, setCommentList] = useState([]);
 
@@ -86,27 +87,26 @@ const Board = ({item, onDelete}) => {
         setComment("");
     }
 
-    const onDeleteComment = id => {
-        const change = commentList.filter(comment=>comment.id !== id);
+    const onDeleteComment = index2 => {
+        const change = commentList.filter((comment, commentIndex)=>commentIndex !== index2);
         setCommentList(change);
     }
-
    
 
     return(
         <li>
             <h3>{item.subject}</h3>
             <p>{item.content}</p>
-            <button onClick={()=>onDelete(item.subject)}>삭제</button>
+            <button onClick={()=>onDelete(index)}>삭제</button>
             <br/>
             <textarea name="comment" id="" placeholder="댓글 작성" value={comment} onChange={onChangeComment}></textarea><br/>
             <button onClick={onComment}>댓글 달기</button>
             <ul>
                 {
-                    commentList.map((item, index)=>{
+                    commentList.map((item, index2)=>{
                         return (
                             <>
-                                <Comment key={index} item={item} onDeleteComment={onDeleteComment}/>
+                                <Comment key={index2} item={item} onDeleteComment={onDeleteComment} index2={index2}/>
                             </>
                         )
                     })
@@ -119,8 +119,8 @@ const Board = ({item, onDelete}) => {
 
 
 // 코멘트 리스트
-const Comment = ({item, onDeleteComment}) => {
+const Comment = ({item, onDeleteComment, index2}) => {
     return (
-        <li><span>{item.id}</span><button onClick={()=>onDeleteComment(item.id)}>삭제</button></li>
+        <li><span>{item.id}</span><button onClick={()=>onDeleteComment(index2)}>삭제</button></li>
     );
 }
