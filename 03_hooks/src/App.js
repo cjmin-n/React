@@ -67,7 +67,7 @@ function App() {
             {/* <Board/> */}
             {/* <Page/> */}
             {/* <ContextContainer/> */}
-            <HooksProblem/>
+            {/* <HooksProblem/> */}
             {/* <CustomHooks/> */}
             {/* <BoardContainer/> */}
         </>
