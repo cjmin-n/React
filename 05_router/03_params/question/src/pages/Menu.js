@@ -17,7 +17,7 @@ const Menu = () => {
             <ul>
                 {menuList.map(menu => <CoffeeItem key={menu.id} menu={menu}/>)}
             </ul>
-            <button onClick={()=>navigate("/order")}>주문하기</button>
+            <button onClick={()=>navigate("/order")}>주문확인</button>
         </main>
     )
 }
