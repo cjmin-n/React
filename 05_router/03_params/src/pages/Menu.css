@@ -1,0 +1,6 @@
+/* css는 적용할 컴포넌트와 이름 동일하게 */
+
+.MenuBox div {
+    display: inline-block;
+    margin: 5px;
+}
