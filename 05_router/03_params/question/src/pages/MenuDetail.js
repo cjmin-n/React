@@ -19,7 +19,7 @@ const MenuDetail = ({shopList, setShopList}) => {
 
     const onClickHandler = () => {
         setShopList([...shopList, menu]);
-        navigate('/menu');
+        navigate(-1);
     }
 
 
@@ -29,7 +29,7 @@ const MenuDetail = ({shopList, setShopList}) => {
             <p>가격 : \{menu.price}</p>
             <p>설명 : {menu.description}</p>
             <button onClick={onClickHandler}>장바구니 추가</button>
-            <button onClick={()=>navigate('/menu')}>돌아가기</button>
+            <button onClick={()=>navigate(-1)}>돌아가기</button>
         </>
     )
 }

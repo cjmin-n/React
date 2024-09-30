@@ -4,7 +4,7 @@ import Main from "./pages/Main";
 import Menu from "./pages/Menu";
 import Order from "./pages/Order";
 import MenuDetail from "./pages/MenuDetail";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
   const [shopList, setShopList] = useState([]);
