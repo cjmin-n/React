@@ -1,0 +1,40 @@
+// common
+$borderRadius : 10px;
+
+.newsList {
+    margin: 0 auto;
+    padding: 100px 0;
+    width: 70%;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        li {
+            width: 47.5%;
+            border-radius: $borderRadius;
+            padding: 10px;
+            box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.2);
+            margin-top: 25px;
+            .imgBox {
+                border-radius: $borderRadius $borderRadius 0 0;
+                overflow: hidden;
+                margin-bottom: 10px;
+                max-height: 50%;
+                img {
+                    width: 100%;
+                }
+            }
+            .title {
+                margin-bottom: 10px;
+            }
+            .description {
+                margin-bottom: 15px;
+            }
+
+            &:nth-child(-n+2) {
+                margin-top: 0;
+            }
+            
+        }
+    }
+}
