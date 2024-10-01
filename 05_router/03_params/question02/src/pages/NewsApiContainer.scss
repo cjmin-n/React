@@ -3,8 +3,8 @@ $borderRadius : 10px;
 
 .newsList {
     margin: 0 auto;
-    padding: 100px 0;
-    width: 70%;
+    padding: 100px 20px;
+    width: 1200px;
     ul {
         display: flex;
         flex-wrap: wrap;
@@ -15,11 +15,12 @@ $borderRadius : 10px;
             padding: 10px;
             box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.2);
             margin-top: 25px;
+            transition: 0.5s;
             .imgBox {
                 border-radius: $borderRadius $borderRadius 0 0;
                 overflow: hidden;
                 margin-bottom: 10px;
-                max-height: 50%;
+                max-height: 280px;
                 img {
                     width: 100%;
                 }
@@ -34,7 +35,9 @@ $borderRadius : 10px;
             &:nth-child(-n+2) {
                 margin-top: 0;
             }
-            
+            &:hover {
+                transform: scale(1.01);
+            }
         }
     }
 }
