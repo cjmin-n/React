@@ -1,0 +1,7 @@
+[
+    { "id": 1, "title": "타이타닉", "year": 1997, "description": "사랑과 비극의 이야기." },
+    { "id": 2, "title": "인셉션", "year": 2010, "description": "꿈 속에서의 범죄." },
+    { "id": 3, "title": "인터스텔라", "year": 2014, "description": "우주를 넘어선 사랑." },
+    { "id": 4, "title": "어벤져스: 엔드게임", "year": 2019, "description": "마블 히어로들의 마지막 전투." },
+    { "id": 5, "title": "기생충", "year": 2019, "description": "계급 사회를 조명한 영화." }
+]
