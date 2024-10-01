@@ -45,3 +45,15 @@
   -webkit-transform: scale(1.01);
           transform: scale(1.01);
 }
+.newsList ul li a {
+  color: #fff;
+  padding: 10px 15px;
+  background: #aaa;
+  border-radius: 5px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.newsList ul li a:hover {
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
+}
